@@ -27,6 +27,10 @@ You already have a Railway config file at root: `railway.json`.
 4. Add env vars in service settings:
    - `MONGODB_URI`
    - `JWT_SECRET`
+   - `EXECUTOR_PROVIDER=judge0`
+   - `JUDGE0_URL=https://judge0-ce.p.rapidapi.com`
+   - `JUDGE0_API_KEY=<your-rapidapi-key>`
+   - `JUDGE0_API_HOST=judge0-ce.p.rapidapi.com`
   - `NODE_ENV=production`
 5. Deploy.
 
