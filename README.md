@@ -96,4 +96,4 @@ Set these in your Vercel project:
 
 **Made with ❤️ by [Vaibhav Joshi](Chaarismatic/CodeVamp) && [Yogesh Pant](https://github.com/yogeshpant585)**
 
-Founder & Lead Developer of CodeVamp.
+Founder & Lead Developer of CodeVamp..
