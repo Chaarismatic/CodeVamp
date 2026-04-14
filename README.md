@@ -93,6 +93,6 @@ Set these in your Netlify Dashboard:
 
 ## 🤝 Contact & Credits
 
-**Made with ❤️ by [Atul Joshi](https://github.com/AtulJoshi1206)**
+**Made with ❤️ by [Vaibhav Joshi](Chaarismatic/CodeVamp)**
 
 Founder & Lead Developer of CodeVamp.
