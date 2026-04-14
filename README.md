@@ -1,6 +1,6 @@
 # 🧛 CodeVamp - High Performance Coding Platform
 
-**CodeVamp** is a next-generation competitive programming platform built for speed, performance, and developer experience. It has been re-engineered to be **100% Serverless-ready** and optimized for direct deployment on **Netlify**.
+**CodeVamp** is a next-generation competitive programming platform built for speed, performance, and developer experience. It is optimized for modern cloud deployment using **Railway** (backend) and **Vercel** (frontend).
 
 ![CodeVamp Banner](apps/web/public/logo.png)
 
@@ -35,33 +35,34 @@
 - **Framework**: React.js (Vite)
 - **Styling**: Tailwind CSS (Minimal & Premium)
 - **Animations**: Framer Motion
-- **Hosting**: Netlify
+- **Hosting**: Vercel
 
-### **Backend (Netlify Functions)**
-- **Framework**: NestJS (deployed as a Serverless Lambda)
+### **Backend**
+- **Framework**: NestJS
 - **Language**: TypeScript
 - **Database**: MongoDB Atlas
+- **Hosting**: Railway
 - **Execution**: Piston Code Execution API
 
 ---
 
-## 🏗 Deployment (Netlify Optimized)
+## 🏗 Deployment (Railway + Vercel)
 
-The platform is designed to be deployed in one click to Netlify.
+The platform is designed for split deployment:
+- Backend on Railway
+- Frontend on Vercel
 
 ### 1. MongoDB Setup
-Ensure your **MongoDB Atlas** Network Access allows `0.0.0.0/0` (Allow Access from Anywhere) to support Netlify's dynamic IP range.
+Ensure your **MongoDB Atlas** Network Access allows `0.0.0.0/0` (Allow Access from Anywhere) to support cloud-hosted backend access.
 
 ### 2. Environment Variables
-Set these in your Netlify Dashboard:
+Set these in your Railway service:
 - `MONGODB_URI`: Your Atlas connection string.
 - `JWT_SECRET`: A strong secret key for auth.
 - `NODE_ENV`: `production`
 
-### 3. Build Configuration
-- **Build command**: `npm install --include=dev && npm run build:api && npm run build:web && mkdir -p apps/api/netlify-deploy && cp apps/api/netlify-function.js apps/api/netlify-deploy/api.js`
-- **Publish directory**: `apps/web/dist`
-- **Functions directory**: `apps/api/netlify-deploy`
+Set these in your Vercel project:
+- `VITE_API_URL`: Your Railway backend URL (example: `https://<service>.up.railway.app`)
 
 ---
 

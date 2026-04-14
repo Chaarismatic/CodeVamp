@@ -1,7 +1,7 @@
-# Deployment Guide (Render + Vercel)
+# Deployment Guide (Railway + Vercel)
 
 This guide deploys:
-- `apps/api` (NestJS backend) on **Render**
+- `apps/api` (NestJS backend) on **Railway**
 - `apps/web` (Vite React frontend) on **Vercel**
 
 ---
@@ -10,39 +10,28 @@ This guide deploys:
 
 1. Push this repo to GitHub.
 2. Create a MongoDB Atlas cluster.
-3. In Atlas, allow network access (`0.0.0.0/0`) or add Render egress IPs.
+3. In Atlas, allow network access (`0.0.0.0/0`) or add Railway egress IPs.
 4. Prepare environment values:
    - `MONGODB_URI`
    - `JWT_SECRET`
 
 ---
 
-## 2) Deploy Backend on Render
+## 2) Deploy Backend on Railway
 
-You already have a Render blueprint file at root: `render.yaml`.
+You already have a Railway config file at root: `railway.json`.
 
-### Option A: Blueprint (recommended)
-1. In Render dashboard, choose **New +** -> **Blueprint**.
-2. Select your GitHub repo.
-3. Render reads `render.yaml` and creates service `codevamp-api`.
-4. Add secret env vars when prompted:
+1. In Railway dashboard, choose **New Project** -> **Deploy from GitHub Repo**.
+2. Select your repo.
+3. Railway reads `railway.json` for build/start commands.
+4. Add env vars in service settings:
    - `MONGODB_URI`
    - `JWT_SECRET`
+  - `NODE_ENV=production`
 5. Deploy.
 
-### Option B: Manual service
-Create a **Web Service** with:
-- **Root Directory:** repo root
-- **Build Command:** `npm install && npm run build:api`
-- **Start Command:** `npm run start:api`
-- **Environment:** Node
-- **Env Vars:**
-  - `NODE_ENV=production`
-  - `MONGODB_URI=<your-value>`
-  - `JWT_SECRET=<your-value>`
-
 After deploy, copy backend URL:
-- Example: `https://codevamp-api.onrender.com`
+- Example: `https://codevamp-api-production.up.railway.app`
 
 ---
 
@@ -53,15 +42,15 @@ Use the root `vercel.json` included in this repo.
 1. In Vercel, import the same GitHub repo.
 2. During setup, keep **Root Directory = /** (repo root).
 3. Add env var:
-   - `VITE_API_URL=https://<your-render-backend-domain>`
-   - Example: `VITE_API_URL=https://codevamp-api.onrender.com`
+   - `VITE_API_URL=https://<your-railway-backend-domain>`
+   - Example: `VITE_API_URL=https://codevamp-api-production.up.railway.app`
 4. Deploy.
 
 ---
 
 ## 4) CORS + API wiring
 
-- Backend currently uses `app.enableCors()` (open CORS), so Vercel -> Render requests work out of the box.
+- Backend currently uses `app.enableCors()` (open CORS), so Vercel -> Railway requests work out of the box.
 - Frontend reads API base URL from:
   - `apps/web/src/config.ts`
   - `VITE_API_URL` in production should always be set for Vercel deployment.
@@ -84,5 +73,5 @@ Use the root `vercel.json` included in this repo.
 
 ## Notes
 
-- `netlify.toml` and `apps/api/src/lambda.ts` are Netlify-specific and not used by Render/Vercel.
-- WebSocket leaderboard can be less reliable if Render free tier sleeps; REST APIs continue to work.
+- Netlify-specific files were removed from this setup.
+- WebSocket leaderboard can be less reliable if Railway service sleeps on low-usage plans; REST APIs continue to work.
