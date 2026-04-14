@@ -38,6 +38,7 @@ export class ExecutionService {
 
                 results.push({
                     passed,
+                    input: testCase.input,
                     actualOutput,
                     expectedOutput,
                     stderr: output.stderr,
