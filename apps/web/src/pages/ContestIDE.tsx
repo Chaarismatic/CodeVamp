@@ -372,12 +372,18 @@ const ContestIDE = () => {
                                                             <div className="grid grid-cols-2 gap-2">
                                                                 <div>
                                                                     <p className="text-gray-500 text-[10px] uppercase">Your Output</p>
-                                                                    <pre className="text-red-400 mt-1">{res.actualOutput || 'Empty'}</pre>
+                                                                    <pre className="text-red-400 mt-1">{res.actualOutput || res.error || 'Empty'}</pre>
                                                                 </div>
                                                                 <div>
                                                                     <p className="text-gray-500 text-[10px] uppercase">Expected</p>
                                                                     <pre className="text-accent mt-1">{res.expectedOutput}</pre>
                                                                 </div>
+                                                            </div>
+                                                        )}
+                                                        {!res.passed && res.error && (
+                                                            <div className="mt-2">
+                                                                <p className="text-red-400 text-[10px] uppercase">Execution Error</p>
+                                                                <pre className="text-red-300 mt-1 whitespace-pre-wrap">{res.error}</pre>
                                                             </div>
                                                         )}
                                                     </div>

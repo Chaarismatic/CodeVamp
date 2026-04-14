@@ -395,10 +395,16 @@ const IDE = () => {
                                                             <div className="space-y-1">
                                                                 <p className="text-gray-500 text-[10px] uppercase font-bold">Output</p>
                                                                 <pre className={`bg-background/50 p-2 rounded overflow-x-auto ${res.passed ? 'text-accent' : 'text-red-400'}`}>
-                                                                    {res.actualOutput || 'Empty'}
+                                                                    {res.actualOutput || res.error || 'Empty'}
                                                                 </pre>
                                                             </div>
                                                         </div>
+                                                        {!res.passed && res.error && (
+                                                            <div className="mt-2 space-y-1">
+                                                                <p className="text-red-400 text-[10px] uppercase font-bold">Execution Error</p>
+                                                                <pre className="bg-red-500/10 p-2 rounded text-red-300 overflow-x-auto whitespace-pre-wrap">{res.error}</pre>
+                                                            </div>
+                                                        )}
                                                         {!res.passed && res.expectedOutput && (
                                                             <div className="mt-2 space-y-1">
                                                                 <p className="text-gray-500 text-[10px] uppercase font-bold text-accent">Expected</p>
