@@ -50,13 +50,7 @@ const Footer = () => {
                         <span>Made with</span>
                         <Heart size={14} className="text-red-500 fill-red-500" />
                         <span>by</span>
-                        <a
-                            href="https://github.com/AtulJoshi1206"
-                            target="_blank"
-                            className="text-white hover:text-primary transition-colors font-semibold"
-                        >
-                            Yogesh Pant
-                        </a>
+                        <span className="text-white font-semibold">CodeVamp Team</span>
                     </div>
                 </div>
             </div>
