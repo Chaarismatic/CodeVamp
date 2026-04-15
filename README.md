@@ -10,7 +10,7 @@
 
 ### 💻 **Advanced Code IDE**
 - **Multi-Language Support**: High-performance execution for Python, C++, Java, JavaScript, C, and Go.
-- **Serverless Execution**: Powered by the **Piston API**—no heavy background workers needed.
+- **Serverless Execution**: Powered by the **Judge0 API**—no heavy background workers needed.
 - **Custom Test Cases**: Run your code against specific inputs to debug effectively.
 - **Rich Editor**: Premium developer experience with syntax highlighting and minimalist design.
 
