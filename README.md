@@ -1,6 +1,6 @@
 # 🧛 CodeVamp - High Performance Coding Platform
 
-**CodeVamp** is a next-generation competitive programming platform built for speed, performance, and developer experience. It is optimized for modern cloud deployment using **Railway** (backend) and **Vercel** (frontend).
+**CodeVamp** is a next-generation competitive programming platform built for speed, performance, and developer experience. It is optimized for modern cloud deployment using **Render** (backend) and **Vercel** (frontend).
 
 ![CodeVamp Banner](apps/web/public/logo.png)
 
@@ -41,28 +41,28 @@
 - **Framework**: NestJS
 - **Language**: TypeScript
 - **Database**: MongoDB Atlas
-- **Hosting**: Railway
+- **Hosting**: Render
 - **Execution**: Piston Code Execution API
 
 ---
 
-## 🏗 Deployment (Railway + Vercel)
+## 🏗 Deployment (Render + Vercel)
 
 The platform is designed for split deployment:
-- Backend on Railway
+- Backend on Render
 - Frontend on Vercel
 
 ### 1. MongoDB Setup
 Ensure your **MongoDB Atlas** Network Access allows `0.0.0.0/0` (Allow Access from Anywhere) to support cloud-hosted backend access.
 
 ### 2. Environment Variables
-Set these in your Railway service:
+Set these in your Render service:
 - `MONGODB_URI`: Your Atlas connection string.
 - `JWT_SECRET`: A strong secret key for auth.
 - `NODE_ENV`: `production`
 
 Set these in your Vercel project:
-- `VITE_API_URL`: Your Railway backend URL (example: `https://<service>.up.railway.app`)
+- `VITE_API_URL`: Your Render backend URL (example: `https://<service>.onrender.com`)
 
 ---
 
